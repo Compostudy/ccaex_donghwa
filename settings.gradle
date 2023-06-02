@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "ccaex"
+include ':app'
+include ':domain'
+include ':data'
+include ':feat:home'
+include ':feat:genre'
+include ':feat:search'
+include ':feat:mypage'
+include ':common'
