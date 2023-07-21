@@ -28,14 +28,28 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.3'
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation(AndroidX.CORE)
+    implementation(AndroidX.LIFECYCLE_RUNTIME)
+    implementation(AndroidX.COMPOSE_ACTIVITY)
+    implementation(AndroidX.COMPOSE_UI)
+    implementation(AndroidX.COMPOSE_UI_TOOLING_PREVIEW)
+    implementation(AndroidX.COMPOSE_MATERIAL)
+
+    testImplementation(AndroidTest.JUNIT4)
+    androidTestImplementation(AndroidTest.EXT_JUNIT)
+    androidTestImplementation(AndroidTest.ESPRESSO_CORE)
+    androidTestImplementation(AndroidTest.COMPOSE_JUNIT4)
+    debugImplementation(AndroidX.COMPOSE_UI_TOOLING)
+    debugImplementation(AndroidTest.COMPOSE_UI_MANIFEST)
 }

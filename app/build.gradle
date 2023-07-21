@@ -1,14 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
-    namespace 'com.compostudy.android.arc'
+    namespace 'com.compostudy.android.app'
     compileSdk Versions.compileSdk
 
     defaultConfig {
-        applicationId "com.compostudy.android.arc"
+        applicationId "com.compostudy.android.app"
         minSdk Versions.minSdk
         targetSdk Versions.targetSdk
         versionCode 1
@@ -48,17 +50,21 @@ android {
 
 dependencies {
 
+    implementation(project(":common"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
+
+    implementation(project(":feat:home"))
+    implementation(project(":feat:genre"))
+    implementation(project(":feat:search"))
+    implementation(project(":feat:mypage"))
+
     implementation(AndroidX.CORE)
     implementation(AndroidX.LIFECYCLE_RUNTIME)
     implementation(AndroidX.COMPOSE_ACTIVITY)
     implementation(AndroidX.COMPOSE_UI)
     implementation(AndroidX.COMPOSE_UI_TOOLING_PREVIEW)
     implementation(AndroidX.COMPOSE_MATERIAL)
-
-    implementation(SquareUp.RETROFIT2)
-    implementation(SquareUp.OKHTTP3)
-    implementation(SquareUp.OKHTTP3_INTERCEPTOR)
-    implementation(SquareUp.GSON_CONVERTER)
 
     testImplementation(AndroidTest.JUNIT4)
     androidTestImplementation(AndroidTest.EXT_JUNIT)
@@ -67,5 +73,14 @@ dependencies {
     debugImplementation(AndroidX.COMPOSE_UI_TOOLING)
     debugImplementation(AndroidTest.COMPOSE_UI_MANIFEST)
 
+    implementation(AndroidX.COMPOSE_NAVIGATION)
+
+    implementation(SquareUp.RETROFIT2)
+    implementation(SquareUp.OKHTTP3)
+    implementation(SquareUp.OKHTTP3_INTERCEPTOR)
+    implementation(SquareUp.GSON_CONVERTER)
+
+    implementation(Google.HILT)
+    kapt(Google.HILT_COMPILER)
 
 }

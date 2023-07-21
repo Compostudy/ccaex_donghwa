@@ -6,6 +6,10 @@ object AndroidX {
     const val COMPOSE_UI_TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:1.4.3"
     const val COMPOSE_MATERIAL = "androidx.compose.material:material:1.4.3"
     const val COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling:1.4.3"
+    const val COMPOSE_NAVIGATION = "androidx.navigation:navigation-compose:2.5.3"
+    const val VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    const val VIEW_MODEL_COMPOSE = "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
+    const val Hilt_NAVIGATION_COMPOSE = "androidx.hilt:hilt-navigation-compose:1.0.0"
 }
 
 object Google {
@@ -27,4 +31,12 @@ object AndroidTest {
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:3.5.1"
     const val COMPOSE_JUNIT4 = "androidx.compose.ui:ui-test-junit4:1.4.3"
     const val COMPOSE_UI_MANIFEST = "androidx.compose.ui:ui-test-manifest:1.4.3"
+}
+
+object IO{
+    const val COIL_COMPOSE = "io.coil-kt:coil-compose:2.4.0"
+}
+
+object Dep {
+    const val inject = "javax.inject:javax.inject:1"
 }

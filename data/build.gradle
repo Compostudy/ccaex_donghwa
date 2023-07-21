@@ -1,15 +1,17 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
     namespace 'com.compostudy.android.data'
-    compileSdk 33
+    compileSdk Versions.compileSdk
 
     defaultConfig {
-        minSdk 24
-        targetSdk 33
+        minSdk Versions.minSdk
+        targetSdk Versions.targetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -32,10 +34,30 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation(project(":domain"))
+    implementation(project(":common"))
+
+    implementation(AndroidX.CORE)
+    implementation(AndroidX.LIFECYCLE_RUNTIME)
+    implementation(AndroidX.COMPOSE_ACTIVITY)
+    implementation(AndroidX.COMPOSE_UI)
+    implementation(AndroidX.COMPOSE_UI_TOOLING_PREVIEW)
+    implementation(AndroidX.COMPOSE_MATERIAL)
+
+    testImplementation(AndroidTest.JUNIT4)
+    androidTestImplementation(AndroidTest.EXT_JUNIT)
+    androidTestImplementation(AndroidTest.ESPRESSO_CORE)
+    androidTestImplementation(AndroidTest.COMPOSE_JUNIT4)
+    debugImplementation(AndroidX.COMPOSE_UI_TOOLING)
+    debugImplementation(AndroidTest.COMPOSE_UI_MANIFEST)
+
+    implementation(AndroidX.COMPOSE_NAVIGATION)
+
+    implementation(SquareUp.RETROFIT2)
+    implementation(SquareUp.OKHTTP3)
+    implementation(SquareUp.OKHTTP3_INTERCEPTOR)
+    implementation(SquareUp.GSON_CONVERTER)
+
+    implementation(Google.HILT)
+    kapt(Google.HILT_COMPILER)
 }
